@@ -4,11 +4,11 @@ MESSAGE_REGEX='^[A-Z ]+$'
 FILE_NAME_REGEX='^[a-zA-Z.]+$'
 
 encrypt_message() {
-    openssl enc -aes-256-cbc -e -pbkdf2 -nosalt -in "$1" -out "$1.enc" -pass pass:"$2" &>/dev/null
+    openssl enc -aes-256-cbc -e -pbkdf2 -nosalt -in "$1" -out "$1.enc" -pass pass:"$2" &> /dev/null
 }
 
 decrypt_message() {
-    openssl enc -aes-256-cbc -d -pbkdf2 -nosalt -in "$1" -out "${1%.enc}" -pass pass:"$2" &>/dev/null
+    openssl enc -aes-256-cbc -d -pbkdf2 -nosalt -in "$1" -out "${1%.enc}" -pass pass:"$2" &> /dev/null
 }
 
 create_file() {
